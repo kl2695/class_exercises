@@ -1,0 +1,9 @@
+<h1>Bands</h1>
+
+<section class="bands">
+  <% @bands.each do |band| %>
+    <div class="band_pages">
+    <%= link_to "#{band.name}", band_url(band.id)%>
+    </div>
+    <% end %>
+</section>

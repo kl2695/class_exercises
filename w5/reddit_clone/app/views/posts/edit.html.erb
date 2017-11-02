@@ -1,0 +1,29 @@
+<h1>Edit Post</h1>
+
+
+<form class="" action="<%=sub_post_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="post[title]" value="<%= @post.title %>">
+  </label>
+
+  <label>URL
+    <input type="text"name="post[url]" value="<%= @post.url %>"></input>
+  </label>
+
+  <label>Content
+    <textarea name="post[content]" rows="4" cols="50"><%= @post.content %></textarea>
+  </label>
+
+  <input type="submit">
+
+  <select name="post[sub_id]">
+    <% @subs.each do |sub| %>
+    <option value="<%= sub.id %>"><%= sub.title %></option>
+    <% end %>
+  </select>
+
+</form>

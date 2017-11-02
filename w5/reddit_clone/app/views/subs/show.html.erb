@@ -1,0 +1,31 @@
+<h1>Subs#show</h1>
+
+<h2>Created By
+  <br>
+  <%= @sub.moderator.username %>
+</h2>
+
+<br>
+
+<h3 class="subheaders">Title</h3>
+  <br>
+  <%= @sub.title %>
+
+
+<br>
+
+<h3 class="subheaders">Description</h3>
+  <br>
+<%= @sub.description %>
+
+<br>
+
+<%= link_to "Make New Post", new_sub_post_url(@sub) %>
+<br>
+<%= link_to "Edit Sub", edit_sub_url %>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li> <%= link_to "#{post.title}", sub_post_url(post.sub_id, post.id ) %> </li>
+  <% end %>
+</ul>

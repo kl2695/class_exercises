@@ -1,0 +1,17 @@
+.sections-nav ul{
+  display: flex;
+}
+
+
+.section-links{
+  display: flex;
+  justify-content: center;
+}
+
+.section-links li{
+  padding: 10px;
+}
+.section-links a:hover{
+  text-decoration: underline;
+  background-color: $gray;
+}

@@ -1,0 +1,46 @@
+<h1>Posts#show</h1>
+
+<h2> <%= @post.title %> by <%= @post.author.username %></h2>
+
+<br>
+
+<h2>Content</h2>
+<br>
+<div class="content-boxes">
+  <p> <%= @post.content %></p>
+</div>
+
+
+<p>
+  upvote
+  <br>
+  downvote
+</p>
+
+<h3 class="subheaders">Subs</h3>
+  <br>
+  <% @subs.each do |sub| %>
+  <%= link_to "#{sub.title}", sub_url(sub) %>
+  <br>
+  <% end %>
+
+<br>
+
+<h3 class="subheaders">Comments</h3>
+  <br>
+  <% @all_comments.each do |com| %>
+    <% if com.parent_comment_id.nil? %>
+      <ul>
+          <%= render 'posts/comment', com: com %>
+      </ul>
+      <% end %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "Comment on this post", new_sub_post_comment_url(sub_id: @post.sub,
+                                                            post_id: @post.id) %>
+
+<br>
+<%= link_to "Edit Post", edit_sub_post_url(@post.sub) %>
+<br>
+<%= link_to "Remove Post", sub_post_url(@post.sub), method: :delete %>

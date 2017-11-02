@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditClone</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+    <% if logged_in? %>
+      <%= current_user.username %>
+      <br>
+      <%= link_to "Create a Sub!", new_sub_url %>
+      <br>
+      <%= link_to "All Subs", subs_url %>
+      <br>
+      <%= button_to 'Sign Out', session_url, method: :delete %>
+    <% else %>
+      <%= button_to 'Sign Up', new_user_url, method: :get %>
+      <br>
+      <%= button_to 'Sign In', new_session_url, method: :get %>
+    <% end %>
+
+    <% flash[:errors].try(:each) do |err| %>
+      <%= err %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

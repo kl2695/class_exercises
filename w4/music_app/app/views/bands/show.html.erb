@@ -1,0 +1,26 @@
+<h1> <%= @band.name %> </h1>
+
+<h2> Albums </h2>
+
+<% @band.albums.each do |album| %>
+<div class="albums">
+<%= link_to "#{album.title}", album_url(album.id)%>
+</div>
+<% end %>
+
+<section> Links
+  <li>
+    <%= link_to "New Album", new_band_album_url(@band.id) %>
+  </li>
+
+  <li> Edit Band
+  </li>
+
+  <li>Destroy Band
+  </li>
+
+  <li> All Bands
+    <%= link_to "All Bands", bands_url %>
+  </li>
+
+</section>

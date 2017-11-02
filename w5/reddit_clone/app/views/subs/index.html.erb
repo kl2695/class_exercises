@@ -1,0 +1,5 @@
+<h1>Subs#index</h1>
+
+<% @subs.each do |s| %>
+<%= link_to "#{s.title}", sub_url(s) %>
+<% end %>

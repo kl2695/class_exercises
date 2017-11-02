@@ -1,0 +1,16 @@
+<br>
+<li>
+  <%= link_to "#{com.content}", comment_url(com)%>
+</li>
+  <%= com.author.username %>
+  <%= com.created_at %>
+<br>
+
+
+<% @all_comments.each do |c2| %>
+  <% if c2.parent_comment_id == com.id %>
+      <ul>
+          <%= render 'posts/comment', com: c2 %>
+      </ul>
+  <% end %>
+<% end %>

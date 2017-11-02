@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <h1 style = 'background-color:#00FFFF;color:red;font-family:verdana;'> Music App $$!! </h1>
+  <div class="login-btns">
+
+
+  <% if logged_in? %>
+    <%= button_to "Logout", session_url, method: :delete %>
+  <% else %>
+    <%= button_to "Login", new_session_url, method: :get %>
+    <%= button_to "Sign up", new_user_url, method: :get%>
+    <% end %>
+
+    </div>
+
+    <% if flash[:errors] %>
+    <ul>
+
+      <% flash[:errors].each do |error| %>
+        <li style = 'background-color: red;', color = 'red', font-family = 'serif'> <%= error %> </li>
+      <% end %>
+
+
+    <ul>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

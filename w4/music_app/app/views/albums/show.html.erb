@@ -1,0 +1,14 @@
+<h1> <%= @album.title %> </h1>
+
+<h2> Albums </h2>
+
+<% @album.tracks.each do |track| %>
+<div class="tracks">
+<%= link_to "#{track.title}", track_url(track.id)%>
+</div>
+<% end %>
+
+<section> New Note
+<textarea rows="8" cols="80"> Content</textarea>
+
+</section>
